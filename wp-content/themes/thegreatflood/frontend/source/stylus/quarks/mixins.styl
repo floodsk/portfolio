@@ -1,0 +1,83 @@
+placeholder()
+
+  &::-webkit-input-placeholder
+    { block }
+
+  &::-moz-placeholder
+    { block }
+
+  &:-ms-input-placeholder
+    { block }
+
+  &:-moz-placeholder
+    { block }
+
+  &::placeholder
+    { block }
+
+  &:placeholder-shown
+    { block }
+
+placeholder-focus()
+
+  &:focus
+
+    &::-webkit-input-placeholder
+      { block }
+
+    &::-moz-placeholder
+      { block }
+
+    &:-ms-input-placeholder
+      { block }
+
+    &:-moz-placeholder
+      { block }
+
+    &::placeholder
+      { block }
+
+    &:placeholder-shown
+      { block }
+
+opacity( n )
+  -ms-filter unquote( 'progid:DXImageTransform.Microsoft.Alpha(Opacity=' + round( n * 100 ) + ')' )
+  filter unquote( 'progid:DXImageTransform.Microsoft.Alpha(Opacity=' + round( n * 100 ) + ')' )
+  filter unquote( 'alpha( opactiy=' + round( n * 100 ) + ')' )
+  -moz-opacity n
+  -khtml-opacity n
+  opacity n
+
+user-select( select )
+  -webkit-user-select select
+     -moz-user-select select
+      -ms-user-select select
+          user-select select
+
+tab-focus()
+  outline thin dotted
+  outline 5px auto -webkit-focus-ring-color
+  outline-offset -2px
+
+button-size( pv = $padding-base-vertical, ph = $padding-base-horizontal, fs = $font-size-base, lh = $line-height-base, bra = $border-radius-base )
+  padding pv ph
+  font-size fs
+  line-height lh
+  border-radius bra
+
+buttonify( letterspc = $letter-spacing-base, bordercr = $border-color, paddingver = $padding-base-vertical, paddinghor = $padding-base-horizontal, fontsize = $font-size-base, lineheight = $line-height-base, borderrad = $border-radius-base )
+  button-size( pv: paddingver, ph: paddinghor, fs: fontsize, lh: lineheight, bra: borderrad )
+  transition all 0.2s ease-in-out
+  border thin solid bordercr
+  letter-spacing letterspc
+  text-transform uppercase
+  vertical-align middle
+  display inline-block
+  user-select( none )
+  white-space nowrap
+  text-align center
+  text-shadow none
+  box-shadow none
+  font-weight 600
+  cursor pointer
+  outline none

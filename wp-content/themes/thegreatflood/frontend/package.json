@@ -1,0 +1,90 @@
+{
+  "name": "thegreatflood",
+  "version": "0.0.1",
+  "description": "A WordPress theme of biblicial porportions.",
+  "main": "index.babel.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "gulp dev --mode development",
+    "prod": "gulp dev --mode production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/floodsk/portfolio.git"
+  },
+  "keywords": [
+    "wordpress",
+    "theme",
+    "responsive",
+    "design",
+    "portfolio"
+  ],
+  "author": "Kyle A. Carter",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/floodsk/portfolio/issues"
+  },
+  "homepage": "https://github.com/floodsk/portfolio#readme",
+  "dependencies": {
+    "babel": "^6.23.0",
+    "babel-core": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babelify": "^7.3.0",
+    "backbone": "^1.3.3",
+    "browserify": "^14.4.0",
+    "browserify-shim": "^3.8.14",
+    "envify": "^4.1.0",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.0.0",
+    "gulp-clean-css": "^3.7.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-modernizr": "^1.0.0-alpha",
+    "gulp-rename": "^1.2.2",
+    "gulp-stylus": "^2.6.0",
+    "gulp-util": "^3.0.8",
+    "jeet": "^7.1.0",
+    "jquery": "^1.11.2",
+    "modernizr": "^3.5.0",
+    "nib": "^1.1.2",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "rupture": "^0.6.2",
+    "stylus": "^0.54.5",
+    "uglify-es": "github:mishoo/UglifyJS2#harmony",
+    "uglify-js": "^2.0.0",
+    "underscore": "^1.8.3",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0"
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "react"
+    ]
+  },
+  "browserify-shim": {},
+  "browserify": {
+    "transforms": [
+      "babelify",
+      "envify",
+      "browserify-shim"
+    ]
+  },
+  "eslintConfig": {
+    "plugins": [
+      "react"
+    ],
+    "env": {
+      "browser": true,
+      "node": true
+    },
+    "parserOptions": {
+      "ecmaVersion": 6,
+      "sourceType": "module",
+      "ecmaFeatures": {
+        "jsx": true
+      }
+    }
+  }
+}
