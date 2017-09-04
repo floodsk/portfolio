@@ -11,7 +11,6 @@
  */
 
 get_header(); ?>
-<?php get_header(); ?>
 <?php get_sidebar(); ?>
 <article role="article" id="article" class="article">
     <header role="marquee" id="marquee" class="marquee">
@@ -19,7 +18,7 @@ get_header(); ?>
 	</header>
     <section role="contents" id="contents" class="contents">
 		<div class="contents container">
-			<p><?php _e( 'It looks like nothing was found at this location. Maybe try a search?', 'default' ); ?></p>
+			<p><?php _e( 'It looks like nothing was found at this location.', 'default' ); ?></p>
 		</div>
 	</section>
 </article>

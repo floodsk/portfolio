@@ -2,11 +2,13 @@ rupture.scale = 0 479px 599px 767px 991px 1199px
 $matte = 1440px
 $page = 1200px
 $jeet = {
-  gutter: 3,
+  gutter: 0,
   max-width: 1440px,
   layout-direction: LTR,
   parent-first: false
 }
+$jsidebar = 540/$jeet[ 'max-width' ]
+$jcontent = ( $jeet[ 'max-width'] - 540 )/$jeet[ 'max-width' ]
 
 $font-family-serif = 'Sentinel A', 'Sentinel B', 'Sentinel', 'Roboto Slab', serif
 $font-family-sans-serif = 'Open Sans', 'HelveticaNeue', 'Helvetica Neue', helvetica, tahoma, sans-serif

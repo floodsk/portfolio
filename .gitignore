@@ -6,7 +6,6 @@ yarn-debug.log*
 yarn-error.log*
 
 #Wordpress
-wp-config.php
 wp-config-local.php
 wp-content/advanced-cache.php
 wp-content/backup-db/

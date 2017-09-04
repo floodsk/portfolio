@@ -1,0 +1,19 @@
+.home, .page
+
+    &-article
+        column( $jcontent )
+        move( $jsidebar, $col-or-span: 'span' )
+
+.home
+
+    &-article
+
+        +below( 4 )
+            unstack()
+            unmove()
+
+    &-contents
+        padding 76px 48px 60px
+
+        +below( 4 )
+            padding 48px 32px

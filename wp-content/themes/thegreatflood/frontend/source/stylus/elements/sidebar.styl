@@ -1,0 +1,17 @@
+.sidebar
+    height 100%
+    fixed top left
+    overflow hidden
+    size(  auto 100vh )
+    background-color transparent
+
+    .home &
+        background-color $index-bg
+        padding 144px unit( floor( ( $jsidebar * 100 ) / 5 ), '%' ) 60px
+        box-shadow: 0 2px 5px rgba(60, 57, 55, 0.8), inset -1px 0 0 #c19180;
+
+        +below( 4 )
+            width 100%
+            height auto
+            padding 32px 16px
+            position relative
