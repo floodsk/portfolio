@@ -8,9 +8,10 @@ $logo = wp_get_attachment_image_src( $custom_logo_id , 'full' );
     <nav role="navigation" id="nav" class="nav nav-connect">
         <?php if ( has_custom_logo() ): ?>
         <figure class="logo logo-default">
-            <a href="<?php print get_site_url(); ?>" role="link"><img src="<?php print esc_url( $logo[ 0 ] ) ?>" alt="Shannon Flood, UX and UI Designer"></a>
-            <figcaption class="sr-only">
+            <a href="<?php print get_site_url(); ?>" role="link"><img class="img-responsive" src="<?php print esc_url( $logo[ 0 ] ) ?>" alt="Shannon Flood, UX and UI Designer"></a>
+            <figcaption>
                 <h1 class="title"><a href="<?php print get_site_url(); ?>" role="link"><?php print get_bloginfo( 'name' ); ?></a></h1>
+                <h2 class="tag-line"><?php print get_bloginfo( 'description' ); ?></h2>
             </figcaption>
         </figure>
         <?php else: ?>

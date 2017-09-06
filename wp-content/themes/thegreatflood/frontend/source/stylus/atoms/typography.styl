@@ -9,12 +9,60 @@ html, body
     color $text-color
     padding 0
     margin 0
+
 *
     box-sizing border-box
 
 .main
     center()
 
+
+h1, h2, h3, h4, h5, h6
+    font-family $headings-font-family
+    color $fourth
+
+h1, h2, h3, h5
+    font-weight 600
+
+h1
+    font-size emify( 72px )
+    letter-spacing emify( 0.72px )
+
+h2
+    font-size emify( 56px )
+    letter-spacing emify( 0.56px )
+
+h3
+    font-size emify( 48px )
+    letter-spacing emify( 0.48px )
+
+    +below( 4 )
+        font-size emify( 40px )
+        letter-spacing emify( 0.40px )
+
+h4
+    font-weight 500
+    font-size emify( 40px )
+    letter-spacing emify( 0.4px )
+
+h5
+    font-size emify( 24px )
+    letter-spacing emify( 0.24px )
+
+    +below( 4 )
+        font-size emify( 15px )
+        letter-spacing emify( 0.15px )
+
+h6
+    font-weight 700
+    font-size emify( 15px )
+    letter-spacing emify( 0.15px )
+
+p, li, td, tr, input, label, textarea, select, blockquote
+    letter-spacing emify( 0.16px )
+
+p, li, blockquote
+    margin 0 0 16px
 
 .text
 
@@ -32,6 +80,9 @@ html, body
     
     &-capitalize
         text-transform capitalize
+    
+    &-lowercase
+        text-transform lowercase
     
     &-underline
         text-decoration underline
@@ -52,3 +103,9 @@ html, body
         margin 0 0 0 auto
         text-align right
         display block
+
+.sr-only
+    text-indent 1000em
+    absolute top left
+    overflow hidden
+    size( 0 )

@@ -1,3 +1,16 @@
+ul
+
+    > li
+        margin 0 0 24px
+        font-weight 500
+
+        &:before
+            content '\f0da'
+            color $primary
+            margin 0 1em 0 0
+            font font-awesome()
+            display inline-block
+
 .list
 
     &-unstyled
@@ -6,9 +19,13 @@
         list-style-type none
     
         > li
-            list-style-type none 
+            list-style-type none
+            font-weight 400
             padding 0
             margin 0
+
+            &:before
+                display none
     
     &-inline
         @extend .list-unstyled
@@ -47,3 +64,9 @@
             
             &:last-child:after
                 content ''
+    
+    &-sections
+        @extend .list-unstyled
+    
+    &-pages
+        @extend .list-unstyled

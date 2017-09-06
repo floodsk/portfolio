@@ -4,16 +4,17 @@
         column( $jcontent )
         move( $jsidebar, $col-or-span: 'span' )
 
-.home
-
-    &-article
-
         +below( 4 )
             unstack()
             unmove()
 
+.home
+
     &-contents
-        padding 76px 48px 60px
+        padding 76px 16px 60px
+        
+        +between( rupture.scale[ 4 ] + 1, 5 )
+            padding-left unit( floor( ( $jsidebar * 100 ) / 3 ), '%' )
 
         +below( 4 )
             padding 48px 32px

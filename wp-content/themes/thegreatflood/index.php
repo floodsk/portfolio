@@ -23,7 +23,7 @@ get_header(); ?>
                 <?php if ( have_posts() ): ?>
                 <li class="section">
                     <h2 class="section-title"><?php print !preg_match( '/^Uncategorized$/i', $category->name ) ? $category->name : 'Miscellaneous' ?></h2>
-                    <ul class="pages">
+                    <ul class="list-pages">
                         <?php while( have_posts() ) : the_post(); ?>
                         <li <?php post_class(); ?>>
                             <h3 class="page-title"><a href="<?php the_permalink(); ?>" role="link" class="lnk lnk-page"><?php the_title(); ?></a></h3>

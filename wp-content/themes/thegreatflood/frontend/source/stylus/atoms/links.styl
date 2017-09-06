@@ -10,3 +10,13 @@ a, .lnk
         
         &:hover, &:focus, &:active
             color $primary
+
+    
+    &[href^="mailto:"], &-mail
+
+        &:after
+            content ''
+            size( 18px )
+            margin 0 0 0 11px
+            display inline-block
+            background-image url( './frontend/source/assets/wave.png' )
