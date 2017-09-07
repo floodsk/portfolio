@@ -12,23 +12,19 @@
 
 $tags = get_the_tags( get_the_ID() );
 get_header(); ?>
-<?php get_sidebar(); ?> 
 <?php while( have_posts() ): the_post()?>
-<article role="article" id="page_article" <?php post_class( 'page-article' ); ?>>
-    <header role="marquee" id="article_marquee" class="page-marquee">
-        <h1 class="page-marquee-title"><?php the_title() ?></h1>
-        <?php if ( isset( $tags ) && !empty( $tags ) ): ?>
-        <ul class="list-pipe">
-            <?php foreach( $tags as $tag ): ?>
-            <li><?php print $tag->name; ?></li>
-            <?php endforeach; ?>
-        </ul>
-        <?php endif; ?>
-    </header>
-    <section role="contents" id="article_contents" class="page-contents">
-        <div class="page-contents-container"><?php the_content(); ?></div>
-    </section>
-    <footer id="article_footer" class="page-footer"></footer>
-</article>
+<header role="marquee" id="marquee" <?php post_class( 'marquee' ); ?>>
+    <h1 class="marquee-title"><?php the_title() ?></h1>
+    <?php if ( isset( $tags ) && !empty( $tags ) ): ?>
+    <ul class="list-pipe">
+        <?php foreach( $tags as $tag ): ?>
+        <li><?php print $tag->name; ?></li>
+        <?php endforeach; ?>
+    </ul>
+    <?php endif; ?>
+</header>
+<section role="content" id="content" <?php post_class( 'content' ); ?>>
+    <div class="contents-container"><?php the_content(); ?></div>
+</section>
 <?php endwhile; ?>
 <?php get_footer(); ?>

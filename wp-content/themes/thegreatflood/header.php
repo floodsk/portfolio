@@ -13,3 +13,5 @@
 </head>
 <body <?php body_class(); ?>>
     <main role="main" id="main" class="main">
+        <?php get_sidebar(); ?>
+        <article role="article" id="article" class="article">

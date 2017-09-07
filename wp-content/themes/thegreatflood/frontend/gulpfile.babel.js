@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 // Node Core
 import fs from 'fs'
@@ -71,7 +71,8 @@ gulp.task('js:build', ()=> {
 	return browserify({
 			entries: './source/babel/main.jsx',
 			debug: /development/gi.test( util.env.mode ) ? true : false,
-			extensions: ['.jsx']
+			extensions: ['.jsx'],
+			paths: ['./node_modules', './source/babel']
 		})
 		.transform('babelify', {presets: ["es2015", "react"]})
 		.transform('envify', {NODE_ENV: util.env.mode})

@@ -1,5 +1,5 @@
 .nav
-    max-width 185px
+    max-width 225px
     margin: 0 auto
     padding 0
 
@@ -10,3 +10,22 @@
 
         +below( 4 )
             max-width none
+    
+    .page &
+        padding 40px 16px 24px
+
+        +below( 4 )
+            height 100%
+            overflow scroll
+            size( auto 100vh )
+            fixed top 0 left -100%
+            box-shadow 1px 0 4px #d7d7d6
+            transition left 0.15s ease-in-out
+
+            .logged-in&
+                padding-top 85px
+
+    .page .sidebar:focus &
+
+        +below( 4 )
+            left 0

@@ -1,6 +1,29 @@
 .sidebar
     background-color transparent
 
+    .page &
+        column( $jsidebar );
+
+        +below( 4 )
+            unstack()
+            padding 40px 16px
+            transition margin-left 0.15s ease-in-out
+
+            + .article
+                transition margin-left 0.15s ease-in-out
+
+            &:after
+                font font-awesome( emify( 32px ) )
+                content '\f0c9'
+                display block
+            
+            &:focus
+                margin-left 225px
+                outline none
+
+                + .article
+                    margin-left 225px
+
     .home &
         background-color $index-bg
 

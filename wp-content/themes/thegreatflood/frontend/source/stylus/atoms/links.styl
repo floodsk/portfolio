@@ -1,6 +1,7 @@
 a, .lnk
     color $link-color
     text-decoration none
+    transition: color .15s ease-in-out
     
     &:hover, &:focus, &:active
         color $link-hover-color
@@ -12,7 +13,7 @@ a, .lnk
             color $primary
 
     
-    &[href^="mailto:"], &-mail
+    &[href^="mailto:"], &-mail, &-wave
 
         &:after
             content ''
@@ -20,3 +21,24 @@ a, .lnk
             margin 0 0 0 11px
             display inline-block
             background-image url( './frontend/source/assets/wave.png' )
+    
+    &-pager
+        @extend .text-uppercase
+        color $text-color
+        @extend h6
+
+        &:before, &:after
+            color $primary
+            display inline-block
+            font font-awesome( $size: emify( 18px, base: 16px ) )
+        
+        &-prev:before
+            content '\f104'
+            padding 0 12px 0 0
+
+        &-next:after
+            content '\f105'
+            padding 0 0 0 6px
+
+        &:hover, &:focus, &:active
+            color $fourth

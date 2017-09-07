@@ -25,8 +25,8 @@ add_action( 'init', 'thegreatflood_excerpts_to_pages' );
 
 function thegreatflood_menus() {
     register_nav_menus( array(
-        'thegreatflood-connect-menu', __( 'Connect Connect' ),
-        'thegreatflood-project-menu', __( 'Project Menu' )
+        'thegreatflood-connect-menu' => __( 'Connect' ),
+        'thegreatflood-project-menu' => __( 'Projects' )
     ));
 }
 add_action( 'init', 'thegreatflood_menus' );

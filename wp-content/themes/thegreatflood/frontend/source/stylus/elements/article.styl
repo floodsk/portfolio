@@ -1,0 +1,12 @@
+.article
+    column( $jcontent )
+
+    +below( 4 )
+        unstack()
+        width 100%
+
+    .home &
+        move( $jsidebar, $col-or-span: 'span' )
+
+        +below( 4 )
+            unmove()

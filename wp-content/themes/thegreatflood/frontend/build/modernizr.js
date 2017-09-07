@@ -1,6 +1,6 @@
 /*!
  * modernizr v3.5.0
- * Build https://modernizr.com/download?-animation-capture-checked-contains-contenteditable-cors-hidden-history-input-json-mathml-opacity-performance-svg-target-template-texttrackapi_track-time-addtest-fnbind-printshiv-testprop-dontmin
+ * Build https://modernizr.com/download?-animation-capture-checked-contains-contenteditable-cors-hidden-history-input-json-mathml-opacity-performance-placeholder-supports-svg-target-template-texttrackapi_track-time-video-addtest-fnbind-printshiv-testprop-dontmin
  *
  * Copyright (c)
  *  Faruk Ates
@@ -1445,55 +1445,6 @@
   ;
 /*!
 {
-  "name": "Content Editable",
-  "property": "contenteditable",
-  "caniuse": "contenteditable",
-  "notes": [{
-    "name": "WHATWG spec",
-    "href": "https://html.spec.whatwg.org/multipage/interaction.html#contenteditable"
-  }]
-}
-!*/
-/* DOC
-Detects support for the `contenteditable` attribute of elements, allowing their DOM text contents to be edited directly by the user.
-*/
-
-  Modernizr.addTest('contenteditable', function() {
-    // early bail out
-    if (!('contentEditable' in docElement)) {
-      return;
-    }
-
-    // some mobile browsers (android < 3.0, iOS < 5) claim to support
-    // contentEditable, but but don't really. This test checks to see
-    // confirms whether or not it actually supports it.
-
-    var div = createElement('div');
-    div.contentEditable = true;
-    return div.contentEditable === 'true';
-  });
-
-/*!
-{
-  "name": "Cross-Origin Resource Sharing",
-  "property": "cors",
-  "caniuse": "cors",
-  "authors": ["Theodoor van Donge"],
-  "notes": [{
-    "name": "MDN documentation",
-    "href": "https://developer.mozilla.org/en-US/docs/HTTP/Access_control_CORS"
-  }],
-  "polyfills": ["pmxdr", "ppx", "flxhr"]
-}
-!*/
-/* DOC
-Detects support for Cross-Origin Resource Sharing: method of performing XMLHttpRequests across domains.
-*/
-
-  Modernizr.addTest('cors', 'XMLHttpRequest' in window && 'withCredentials' in new XMLHttpRequest());
-
-/*!
-{
   "name": "History API",
   "property": "history",
   "caniuse": "history",
@@ -1602,120 +1553,6 @@ Modernizr.input.step
     }
     return attrs;
   })(inputattrs);
-
-/*!
-{
-  "name": "JSON",
-  "property": "json",
-  "caniuse": "json",
-  "notes": [{
-    "name": "MDN documentation",
-    "href": "https://developer.mozilla.org/en-US/docs/Glossary/JSON"
-  }],
-  "polyfills": ["json2"]
-}
-!*/
-/* DOC
-Detects native support for JSON handling functions.
-*/
-
-  // this will also succeed if you've loaded the JSON2.js polyfill ahead of time
-  //   ... but that should be obvious. :)
-
-  Modernizr.addTest('json', 'JSON' in window && 'parse' in JSON && 'stringify' in JSON);
-
-
-  /**
-   * testStyles injects an element with style element and some CSS rules
-   *
-   * @memberof Modernizr
-   * @name Modernizr.testStyles
-   * @optionName Modernizr.testStyles()
-   * @optionProp testStyles
-   * @access public
-   * @function testStyles
-   * @param {string} rule - String representing a css rule
-   * @param {function} callback - A function that is used to test the injected element
-   * @param {number} [nodes] - An integer representing the number of additional nodes you want injected
-   * @param {string[]} [testnames] - An array of strings that are used as ids for the additional nodes
-   * @returns {boolean}
-   * @example
-   *
-   * `Modernizr.testStyles` takes a CSS rule and injects it onto the current page
-   * along with (possibly multiple) DOM elements. This lets you check for features
-   * that can not be detected by simply checking the [IDL](https://developer.mozilla.org/en-US/docs/Mozilla/Developer_guide/Interface_development_guide/IDL_interface_rules).
-   *
-   * ```js
-   * Modernizr.testStyles('#modernizr { width: 9px; color: papayawhip; }', function(elem, rule) {
-   *   // elem is the first DOM node in the page (by default #modernizr)
-   *   // rule is the first argument you supplied - the CSS rule in string form
-   *
-   *   addTest('widthworks', elem.style.width === '9px')
-   * });
-   * ```
-   *
-   * If your test requires multiple nodes, you can include a third argument
-   * indicating how many additional div elements to include on the page. The
-   * additional nodes are injected as children of the `elem` that is returned as
-   * the first argument to the callback.
-   *
-   * ```js
-   * Modernizr.testStyles('#modernizr {width: 1px}; #modernizr2 {width: 2px}', function(elem) {
-   *   document.getElementById('modernizr').style.width === '1px'; // true
-   *   document.getElementById('modernizr2').style.width === '2px'; // true
-   *   elem.firstChild === document.getElementById('modernizr2'); // true
-   * }, 1);
-   * ```
-   *
-   * By default, all of the additional elements have an ID of `modernizr[n]`, where
-   * `n` is its index (e.g. the first additional, second overall is `#modernizr2`,
-   * the second additional is `#modernizr3`, etc.).
-   * If you want to have more meaningful IDs for your function, you can provide
-   * them as the fourth argument, as an array of strings
-   *
-   * ```js
-   * Modernizr.testStyles('#foo {width: 10px}; #bar {height: 20px}', function(elem) {
-   *   elem.firstChild === document.getElementById('foo'); // true
-   *   elem.lastChild === document.getElementById('bar'); // true
-   * }, 2, ['foo', 'bar']);
-   * ```
-   *
-   */
-
-  var testStyles = ModernizrProto.testStyles = injectElementWithStyles;
-  
-/*!
-{
-  "name": "MathML",
-  "property": "mathml",
-  "caniuse": "mathml",
-  "authors": ["Addy Osmani", "Davide P. Cervone", "David Carlisle"],
-  "knownBugs": ["Firefox < 4 will likely return a false, however it does support MathML inside XHTML documents"],
-  "notes": [{
-    "name": "W3C spec",
-    "href": "https://www.w3.org/Math/"
-  }],
-  "polyfills": ["mathjax"]
-}
-!*/
-/* DOC
-Detects support for MathML, for mathematic equations in web pages.
-*/
-
-  // Based on work by Davide (@dpvc) and David (@davidcarlisle)
-  // in https://github.com/mathjax/MathJax/issues/182
-
-  Modernizr.addTest('mathml', function() {
-    var ret;
-
-    testStyles('#modernizr{position:absolute;display:inline-block}', function(node) {
-      node.innerHTML += '<math><mfrac><mi>xx</mi><mi>yy</mi></mfrac></math>';
-
-      ret = node.offsetHeight > node.offsetWidth;
-    });
-
-    return ret;
-  });
 
 
   /**
@@ -2042,43 +1879,64 @@ Detects support for SVG in `<embed>` or `<object>` elements.
 
 /*!
 {
-  "name": "Web Animation API",
-  "property": "animation",
-  "tags": ["webanimations"],
-  "polyfills": ["webanimationsjs"],
-  "notes": [{
-    "name": "Introducing Web Animations",
-    "href": "http://brian.sol1.net/svg/2013/06/26/introducing-web-animations/"
-  }]
+  "name": "HTML5 Video",
+  "property": "video",
+  "caniuse": "video",
+  "tags": ["html5"],
+  "knownBugs": [
+    "Without QuickTime, `Modernizr.video.h264` will be `undefined`; https://github.com/Modernizr/Modernizr/issues/546"
+  ],
+  "polyfills": [
+    "html5media",
+    "mediaelementjs",
+    "sublimevideo",
+    "videojs",
+    "leanbackplayer",
+    "videoforeverybody"
+  ]
 }
 !*/
 /* DOC
-Detects support for the Web Animation API, a way to create css animations in js
+Detects support for the video element, as well as testing what types of content it supports.
+
+Subproperties are provided to describe support for `ogg`, `h264` and `webm` formats, e.g.:
+
+```javascript
+Modernizr.video         // true
+Modernizr.video.ogg     // 'probably'
+```
 */
 
-  Modernizr.addTest('webanimations', 'animate' in createElement('div'));
+  // Codec values from : github.com/NielsLeenheer/html5test/blob/9106a8/index.html#L845
+  //                     thx to NielsLeenheer and zcorpan
 
-/*!
-{
-  "name": "CSS :checked pseudo-selector",
-  "caniuse": "css-sel3",
-  "property": "checked",
-  "tags": ["css"],
-  "notes": [{
-    "name": "Related Github Issue",
-    "href": "https://github.com/Modernizr/Modernizr/pull/879"
-  }]
-}
-!*/
+  // Note: in some older browsers, "no" was a return value instead of empty string.
+  //   It was live in FF3.5.0 and 3.5.1, but fixed in 3.5.2
+  //   It was also live in Safari 4.0.0 - 4.0.4, but fixed in 4.0.5
 
-  Modernizr.addTest('checked', function() {
-    return testStyles('#modernizr {position:absolute} #modernizr input {margin-left:10px} #modernizr :checked {margin-left:20px;display:block}', function(elem) {
-      var cb = createElement('input');
-      cb.setAttribute('type', 'checkbox');
-      cb.setAttribute('checked', 'checked');
-      elem.appendChild(cb);
-      return cb.offsetLeft === 20;
-    });
+  Modernizr.addTest('video', function() {
+    var elem = createElement('video');
+    var bool = false;
+
+    // IE9 Running on Windows Server SKU can cause an exception to be thrown, bug #224
+    try {
+      bool = !!elem.canPlayType
+      if (bool) {
+        bool = new Boolean(bool);
+        bool.ogg = elem.canPlayType('video/ogg; codecs="theora"').replace(/^no$/, '');
+
+        // Without QuickTime, this value will be `undefined`. github.com/Modernizr/Modernizr/issues/546
+        bool.h264 = elem.canPlayType('video/mp4; codecs="avc1.42E01E"').replace(/^no$/, '');
+
+        bool.webm = elem.canPlayType('video/webm; codecs="vp8, vorbis"').replace(/^no$/, '');
+
+        bool.vp9 = elem.canPlayType('video/webm; codecs="vp9"').replace(/^no$/, '');
+
+        bool.hls = elem.canPlayType('application/x-mpegURL; codecs="avc1.42E01E"').replace(/^no$/, '');
+      }
+    } catch (e) {}
+
+    return bool;
   });
 
 
@@ -2143,6 +2001,285 @@ Detects support for the Web Animation API, a way to create css animations in js
     // German Chrome returns this value as 0,55
     // github.com/Modernizr/Modernizr/issues/#issue/59/comment/516632
     return (/^0.55$/).test(style.opacity);
+  });
+
+/*!
+{
+  "name": "CSS Supports",
+  "property": "supports",
+  "caniuse": "css-featurequeries",
+  "tags": ["css"],
+  "builderAliases": ["css_supports"],
+  "notes": [{
+    "name": "W3 Spec",
+    "href": "http://dev.w3.org/csswg/css3-conditional/#at-supports"
+  },{
+    "name": "Related Github Issue",
+    "href": "https://github.com/Modernizr/Modernizr/issues/648"
+  },{
+    "name": "W3 Info",
+    "href": "http://dev.w3.org/csswg/css3-conditional/#the-csssupportsrule-interface"
+  }]
+}
+!*/
+
+  var newSyntax = 'CSS' in window && 'supports' in window.CSS;
+  var oldSyntax = 'supportsCSS' in window;
+  Modernizr.addTest('supports', newSyntax || oldSyntax);
+
+/*!
+{
+  "name": "Track element and Timed Text Track",
+  "property": ["texttrackapi", "track"],
+  "tags": ["elem"],
+  "builderAliases": ["elem_track"],
+  "authors": ["Addy Osmani"],
+  "notes": [{
+    "name": "W3 track Element Spec",
+    "href": "http://www.w3.org/TR/html5/video.html#the-track-element"
+  },{
+    "name": "W3 track API Spec",
+    "href": "http://www.w3.org/TR/html5/media-elements.html#text-track-api"
+  }],
+  "warnings": ["While IE10 has implemented the track element, IE10 does not expose the underlying APIs to create timed text tracks by JS (really sad)"]
+}
+!*/
+
+  Modernizr.addTest('texttrackapi', typeof (createElement('video').addTextTrack) === 'function');
+
+  // a more strict test for track including UI support: document.createElement('track').kind === 'subtitles'
+  Modernizr.addTest('track', 'kind' in createElement('track'));
+
+/*!
+{
+  "name": "ES5 String.prototype.contains",
+  "property": "contains",
+  "authors": ["Robert Kowalski"],
+  "tags": ["es6"]
+}
+!*/
+/* DOC
+Check if browser implements ECMAScript 6 `String.prototype.contains` per specification.
+*/
+
+  Modernizr.addTest('contains', is(String.prototype.contains, 'function'));
+
+/*!
+{
+  "name": "placeholder attribute",
+  "property": "placeholder",
+  "tags": ["forms", "attribute"],
+  "builderAliases": ["forms_placeholder"]
+}
+!*/
+/* DOC
+Tests for placeholder attribute in inputs and textareas
+*/
+
+  Modernizr.addTest('placeholder', ('placeholder' in createElement('input') && 'placeholder' in createElement('textarea')));
+
+/*!
+{
+  "name": "Content Editable",
+  "property": "contenteditable",
+  "caniuse": "contenteditable",
+  "notes": [{
+    "name": "WHATWG spec",
+    "href": "https://html.spec.whatwg.org/multipage/interaction.html#contenteditable"
+  }]
+}
+!*/
+/* DOC
+Detects support for the `contenteditable` attribute of elements, allowing their DOM text contents to be edited directly by the user.
+*/
+
+  Modernizr.addTest('contenteditable', function() {
+    // early bail out
+    if (!('contentEditable' in docElement)) {
+      return;
+    }
+
+    // some mobile browsers (android < 3.0, iOS < 5) claim to support
+    // contentEditable, but but don't really. This test checks to see
+    // confirms whether or not it actually supports it.
+
+    var div = createElement('div');
+    div.contentEditable = true;
+    return div.contentEditable === 'true';
+  });
+
+/*!
+{
+  "name": "Cross-Origin Resource Sharing",
+  "property": "cors",
+  "caniuse": "cors",
+  "authors": ["Theodoor van Donge"],
+  "notes": [{
+    "name": "MDN documentation",
+    "href": "https://developer.mozilla.org/en-US/docs/HTTP/Access_control_CORS"
+  }],
+  "polyfills": ["pmxdr", "ppx", "flxhr"]
+}
+!*/
+/* DOC
+Detects support for Cross-Origin Resource Sharing: method of performing XMLHttpRequests across domains.
+*/
+
+  Modernizr.addTest('cors', 'XMLHttpRequest' in window && 'withCredentials' in new XMLHttpRequest());
+
+/*!
+{
+  "name": "JSON",
+  "property": "json",
+  "caniuse": "json",
+  "notes": [{
+    "name": "MDN documentation",
+    "href": "https://developer.mozilla.org/en-US/docs/Glossary/JSON"
+  }],
+  "polyfills": ["json2"]
+}
+!*/
+/* DOC
+Detects native support for JSON handling functions.
+*/
+
+  // this will also succeed if you've loaded the JSON2.js polyfill ahead of time
+  //   ... but that should be obvious. :)
+
+  Modernizr.addTest('json', 'JSON' in window && 'parse' in JSON && 'stringify' in JSON);
+
+
+  /**
+   * testStyles injects an element with style element and some CSS rules
+   *
+   * @memberof Modernizr
+   * @name Modernizr.testStyles
+   * @optionName Modernizr.testStyles()
+   * @optionProp testStyles
+   * @access public
+   * @function testStyles
+   * @param {string} rule - String representing a css rule
+   * @param {function} callback - A function that is used to test the injected element
+   * @param {number} [nodes] - An integer representing the number of additional nodes you want injected
+   * @param {string[]} [testnames] - An array of strings that are used as ids for the additional nodes
+   * @returns {boolean}
+   * @example
+   *
+   * `Modernizr.testStyles` takes a CSS rule and injects it onto the current page
+   * along with (possibly multiple) DOM elements. This lets you check for features
+   * that can not be detected by simply checking the [IDL](https://developer.mozilla.org/en-US/docs/Mozilla/Developer_guide/Interface_development_guide/IDL_interface_rules).
+   *
+   * ```js
+   * Modernizr.testStyles('#modernizr { width: 9px; color: papayawhip; }', function(elem, rule) {
+   *   // elem is the first DOM node in the page (by default #modernizr)
+   *   // rule is the first argument you supplied - the CSS rule in string form
+   *
+   *   addTest('widthworks', elem.style.width === '9px')
+   * });
+   * ```
+   *
+   * If your test requires multiple nodes, you can include a third argument
+   * indicating how many additional div elements to include on the page. The
+   * additional nodes are injected as children of the `elem` that is returned as
+   * the first argument to the callback.
+   *
+   * ```js
+   * Modernizr.testStyles('#modernizr {width: 1px}; #modernizr2 {width: 2px}', function(elem) {
+   *   document.getElementById('modernizr').style.width === '1px'; // true
+   *   document.getElementById('modernizr2').style.width === '2px'; // true
+   *   elem.firstChild === document.getElementById('modernizr2'); // true
+   * }, 1);
+   * ```
+   *
+   * By default, all of the additional elements have an ID of `modernizr[n]`, where
+   * `n` is its index (e.g. the first additional, second overall is `#modernizr2`,
+   * the second additional is `#modernizr3`, etc.).
+   * If you want to have more meaningful IDs for your function, you can provide
+   * them as the fourth argument, as an array of strings
+   *
+   * ```js
+   * Modernizr.testStyles('#foo {width: 10px}; #bar {height: 20px}', function(elem) {
+   *   elem.firstChild === document.getElementById('foo'); // true
+   *   elem.lastChild === document.getElementById('bar'); // true
+   * }, 2, ['foo', 'bar']);
+   * ```
+   *
+   */
+
+  var testStyles = ModernizrProto.testStyles = injectElementWithStyles;
+  
+/*!
+{
+  "name": "MathML",
+  "property": "mathml",
+  "caniuse": "mathml",
+  "authors": ["Addy Osmani", "Davide P. Cervone", "David Carlisle"],
+  "knownBugs": ["Firefox < 4 will likely return a false, however it does support MathML inside XHTML documents"],
+  "notes": [{
+    "name": "W3C spec",
+    "href": "https://www.w3.org/Math/"
+  }],
+  "polyfills": ["mathjax"]
+}
+!*/
+/* DOC
+Detects support for MathML, for mathematic equations in web pages.
+*/
+
+  // Based on work by Davide (@dpvc) and David (@davidcarlisle)
+  // in https://github.com/mathjax/MathJax/issues/182
+
+  Modernizr.addTest('mathml', function() {
+    var ret;
+
+    testStyles('#modernizr{position:absolute;display:inline-block}', function(node) {
+      node.innerHTML += '<math><mfrac><mi>xx</mi><mi>yy</mi></mfrac></math>';
+
+      ret = node.offsetHeight > node.offsetWidth;
+    });
+
+    return ret;
+  });
+
+/*!
+{
+  "name": "Web Animation API",
+  "property": "animation",
+  "tags": ["webanimations"],
+  "polyfills": ["webanimationsjs"],
+  "notes": [{
+    "name": "Introducing Web Animations",
+    "href": "http://brian.sol1.net/svg/2013/06/26/introducing-web-animations/"
+  }]
+}
+!*/
+/* DOC
+Detects support for the Web Animation API, a way to create css animations in js
+*/
+
+  Modernizr.addTest('webanimations', 'animate' in createElement('div'));
+
+/*!
+{
+  "name": "CSS :checked pseudo-selector",
+  "caniuse": "css-sel3",
+  "property": "checked",
+  "tags": ["css"],
+  "notes": [{
+    "name": "Related Github Issue",
+    "href": "https://github.com/Modernizr/Modernizr/pull/879"
+  }]
+}
+!*/
+
+  Modernizr.addTest('checked', function() {
+    return testStyles('#modernizr {position:absolute} #modernizr input {margin-left:10px} #modernizr :checked {margin-left:20px;display:block}', function(elem) {
+      var cb = createElement('input');
+      cb.setAttribute('type', 'checkbox');
+      cb.setAttribute('checked', 'checked');
+      elem.appendChild(cb);
+      return cb.offsetLeft === 20;
+    });
   });
 
 /*!
@@ -2231,43 +2368,6 @@ Does the browser support the HTML5 [hidden] attribute?
 !*/
 
   Modernizr.addTest('time', 'valueAsDate' in createElement('time'));
-
-/*!
-{
-  "name": "Track element and Timed Text Track",
-  "property": ["texttrackapi", "track"],
-  "tags": ["elem"],
-  "builderAliases": ["elem_track"],
-  "authors": ["Addy Osmani"],
-  "notes": [{
-    "name": "W3 track Element Spec",
-    "href": "http://www.w3.org/TR/html5/video.html#the-track-element"
-  },{
-    "name": "W3 track API Spec",
-    "href": "http://www.w3.org/TR/html5/media-elements.html#text-track-api"
-  }],
-  "warnings": ["While IE10 has implemented the track element, IE10 does not expose the underlying APIs to create timed text tracks by JS (really sad)"]
-}
-!*/
-
-  Modernizr.addTest('texttrackapi', typeof (createElement('video').addTextTrack) === 'function');
-
-  // a more strict test for track including UI support: document.createElement('track').kind === 'subtitles'
-  Modernizr.addTest('track', 'kind' in createElement('track'));
-
-/*!
-{
-  "name": "ES5 String.prototype.contains",
-  "property": "contains",
-  "authors": ["Robert Kowalski"],
-  "tags": ["es6"]
-}
-!*/
-/* DOC
-Check if browser implements ECMAScript 6 `String.prototype.contains` per specification.
-*/
-
-  Modernizr.addTest('contains', is(String.prototype.contains, 'function'));
 
 /*!
 {
