@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for displaying 404 pages (not found)
+ * The template for displaying content pages
  *
  * @link https://codex.wordpress.org/Creating_an_Error_404_Page
  *
@@ -11,15 +11,10 @@
  */
 
 get_header(); ?>
-<?php get_sidebar(); ?>
-<article role="article" id="article" class="article">
-    <header role="marquee" id="marquee" class="marquee">
-		<h1 class="marquee-title"><?php _e( 'Oops! That page can&rsquo;t be found.', 'default' ); ?></h1>
-	</header>
-    <section role="contents" id="contents" class="contents">
-		<div class="contents container">
-			<p><?php _e( 'It looks like nothing was found at this location.', 'default' ); ?></p>
-		</div>
-	</section>
-</article>
-<?php get_footer();
+<header role="marquee" id="marquee" <?php post_class( 'marquee' ); ?>>
+    <h1 class="marquee-title"><?php _e( 'Oops! That page can&rsquo;t be found.', 'default' ); ?></h1>
+</header>
+<section role="content" id="content" <?php post_class( 'content' ); ?>>
+    <div class="contents-container"><p><?php _e( 'It looks like nothing was found at this location.', 'default' ); ?></p></div>
+</section>
+<?php get_footer(); ?>

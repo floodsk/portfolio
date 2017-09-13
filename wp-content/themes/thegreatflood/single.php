@@ -27,10 +27,4 @@ get_header(); ?>
     <div class="contents-container"><?php the_content(); ?></div>
 </section>
 <?php endwhile; ?>
-<footer id="footer" class="footer">
-    <ul class="list-pager">
-        <li><a href="http://" class="lnk lnk-pager lnk-pager-prev">Previous</a></li>
-        <li><a href="http://" class="lnk lnk-pager lnk-pager-next">Next</a></li>
-    </ul>
-</footer>
 <?php get_footer(); ?>

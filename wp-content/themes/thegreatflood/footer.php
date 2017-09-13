@@ -1,11 +1,18 @@
-             <?php if ( !is_home() && !is_front_page() ): ?>
-             <footer id="footer" class="footer">
-                <ul class="list-pager">
-                    <li><a href="http://" class="lnk lnk-pager lnk-pager-prev">Previous</a></li>
-                    <li><a href="http://" class="lnk lnk-pager lnk-pager-next">Next</a></li>
-                </ul>
-             </footer>
-             <?php endif; ?>
+<?php
+/**
+ * The template for displaying the footer
+ *
+ * Contains the closing of the #content div and all content after.
+ *
+ * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
+ *
+ * @package WordPress
+ * @subpackage 
+ * @since 1.0
+ * @version 1.2
+ */
+
+?>
         </article>
    </main>
 <?php wp_footer(); ?>

@@ -3,8 +3,8 @@ normalize-css()
 html, body
     font normal normal normal $font-size-base/$line-height-base $font-family-base
     -webkit-font-smoothing antialiased
-	-moz-osx-font-smoothing grayscale
-    background $matte-bg
+    -moz-osx-font-smoothing grayscale
+    background-color $matte-bg
     font-smooth always
     color $text-color
     padding 0
@@ -30,9 +30,17 @@ h1
     font-size emify( 72px )
     letter-spacing emify( 0.72px )
 
+    +below( 4 )
+        font-size emify( 40px )
+        letter-spacing emify( 0.40px )
+
 h2
     font-size emify( 56px )
     letter-spacing emify( 0.56px )
+
+    +below( 4 )
+        font-size emify( 40px )
+        letter-spacing emify( 0.40px )
 
 h3
     font-size emify( 48px )
@@ -46,6 +54,10 @@ h4
     font-weight 500
     font-size emify( 40px )
     letter-spacing emify( 0.4px )
+
+    +below( 4 )
+        font-size emify( 30px )
+        letter-spacing emify( 0.3px )
 
 h5
     font-size emify( 24px )

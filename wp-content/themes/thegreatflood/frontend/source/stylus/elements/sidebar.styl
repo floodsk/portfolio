@@ -1,28 +1,27 @@
 .sidebar
     background-color transparent
+    column( $jsidebar );
+    padding-top 60px
 
-    .page &
-        column( $jsidebar );
+    +below( 4 )
+        stack()
+        padding 40px 16px
+        transition margin-left 0.15s ease-in-out
 
-        +below( 4 )
-            unstack()
-            padding 40px 16px
+        + .article
             transition margin-left 0.15s ease-in-out
 
+        &:after
+            font font-awesome( emify( 32px ) )
+            content '\f0c9'
+            display block
+        
+        &:focus, .navigation-open &
+            margin-left 225px
+            outline none
+
             + .article
-                transition margin-left 0.15s ease-in-out
-
-            &:after
-                font font-awesome( emify( 32px ) )
-                content '\f0c9'
-                display block
-            
-            &:focus
                 margin-left 225px
-                outline none
-
-                + .article
-                    margin-left 225px
 
     .home &
         background-color $index-bg
@@ -38,3 +37,12 @@
         +below( 4 )
             padding 32px 16px
             box-shadow: inset 0 -1px 0 $fourth;
+
+            &:after
+                display none;
+
+            &:focus, .navigation-open &
+                margin-left 0
+
+                + .article
+                    margin-left 0

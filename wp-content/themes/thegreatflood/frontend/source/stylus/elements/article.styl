@@ -1,12 +1,15 @@
 .article
     column( $jcontent )
+    padding-top 40px
 
     +below( 4 )
-        unstack()
+        stack()
         width 100%
+        padding-top 0
 
     .home &
         move( $jsidebar, $col-or-span: 'span' )
+        padding-top 0
 
         +below( 4 )
             unmove()

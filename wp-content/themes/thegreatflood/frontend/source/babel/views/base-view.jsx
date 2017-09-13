@@ -26,16 +26,28 @@ class BaseView extends Backbone.View {
     el() { return document.body }
 
     events() {
-        return {}
+        return {
+            'click': 'ToggleNavigationMenu',
+            'touch': 'ToggleNavigationMenu'
+        }
     }
 
     initialize() {
         console.log( 'SHANNON FLOOD BASEVIEW LOADED' );
-        console.log( params );
         return this;
     }
 
     render() {
+        return this;
+    }
+
+    ToggleNavigationMenu( e ) {
+        e.stopPropagation();
+        const $target = $( e.target );
+        if ( window.innerWidth > 991 ) return this;
+        if ( /^a$/gi.test( e.target.nodeName ) && $target.parents( '.menu-item' ).get( 0 ) ) return this;
+        if ( !this.$el.hasClass( 'navigation-open' ) && !$target.hasClass( 'sidebar' ) ) return this;
+        this.$el.toggleClass( 'navigation-open' );
         return this;
     }
 

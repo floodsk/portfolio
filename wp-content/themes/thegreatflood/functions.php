@@ -41,3 +41,33 @@ function thegreatflood_edit_form_after_title() {
     echo '<p style="margin-bottom:0;">'.$tip.'</p>';
 }
 add_action( 'edit_form_after_title', 'thegreatflood_edit_form_after_title' );
+
+function thegreatflood_image_send_to_editor( $html, $id, $caption, $title, $align, $url, $size, $alt ) {
+   $image = wp_get_attachment_image_src( $id, 'full', FALSE );
+   if ( !$image ) return '';
+
+   $metadata = wp_get_attachment_metadata( $id );
+   $srcset = wp_calculate_image_srcset( array( $image[ 1 ], $image[ 2 ] ), $image[ 0 ], $metadata );
+
+    $classes = 'img-responsive wp-image-' . $id . ' img-' . $image[ 1 ] . '-by-' . $image[ 2 ];
+    $classes .= gettype( $size ) === 'string' ? ' img-size-' . $size : '';
+    if ( $align === 'left' ) {
+        $classes .= ' block-left';
+    } elseif ( $align === 'right' ) {
+        $classes .= ' block-right';
+    } elseif ( $align === 'center' ) {
+        $classes .= ' block-center';
+    } else {
+        $classes .= ' block-none';
+    }
+    $classes = apply_filters( 'get_image_tag_class', $classes, $id, $align, $size );
+
+    $markup = isset( $url ) && !empty( $url ) ? '<a href="' . $url . '"><figure class="img"' : '<figure class="img"';
+    $markup .= ' id="wp-image-' . $id . '">';
+    $markup .= '<img src="' . $image[ 0 ] . '" srcset="' . $srcset . '" class="' . $classes . '" alt="' . esc_attr( $alt ) . '" tile="' . esc_attr( $title ) . '" />';
+    $markup .= isset( $caption ) && !empty( $caption ) ? '<figcaption>' . $caption . '</figcaption>' : '';
+    $markup .= '</figure>';
+
+    return $markup;
+}
+add_filter( 'image_send_to_editor', 'thegreatflood_image_send_to_editor', 10, 8 );

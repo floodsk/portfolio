@@ -1,5 +1,14 @@
 .content
     max-width 736px
+    padding 60px 16px 72px
+
+    +below( 4 )
+        padding 16px 16px 32px
+
+    h2
+        @extend h5
+        margin 0 0 24px
+        color $text-color
 
     .home &
         padding 76px 16px 60px
@@ -12,16 +21,5 @@
             max-width 500px
             margin 0 auto
 
-       +below( 4 )
-            padding 48px 32px
-
-    .page &
-        padding 60px 16px 72px
-
         +below( 4 )
-            padding 16px 16px 32px
-
-        h2
-            @extend h5
-            margin 0 0 24px
-            color $text-color
+            padding 48px 16px
