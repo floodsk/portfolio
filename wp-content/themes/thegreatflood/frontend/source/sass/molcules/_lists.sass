@@ -54,11 +54,11 @@ ul
         @extend .list-inline
 
         > li
-            padding: 0 5px
+            padding: 0 2px
 
             &:after
                 content: '|'
-                padding: 0 5px 0 15px
+                padding: 0 0 0 8px
                 display: inline-block
 
             &:last-child:after
@@ -77,11 +77,11 @@ ul
         > li:first-child
             padding-right: 72px
 
-            +breakpoint( max-width nth( $scale, 4 ) )
+            +breakpoint( max-width nth( $scale, 5 ) )
                 padding: 0
                 float: left
 
         > li:last-child
 
-            +breakpoint( max-width nth( $scale, 4 ) )
+            +breakpoint( max-width nth( $scale, 5 ) )
                 float: right

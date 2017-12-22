@@ -1,25 +1,26 @@
 .content
-    max-width: 736px
-    padding: 12px 16px 72px
+  max-width: 736px
+  padding: 12px 16px 72px
 
-    +breakpoint( max-width nth( $scale, 4 ) )
-        padding: 16px 16px 32px
+  +breakpoint( max-width nth( $scale, 5 ) )
+    padding: 16px 16px 32px
 
-    h2
-        @extend h5
-        margin: 0 0 24px
-        color: $text-color
+  h2
+    margin: 0 0 24px
+    color: $text-color
+    font-size: emify( 24px, $base: 16px )
+    letter-spacing: emify( 0.24px, $base: 16px )
 
-    .home &
-        padding: 76px 16px 60px
+  .home &
+    padding: 76px 16px 60px
 
-        +breakpoint( 1025px nth( $scale, 5 ) )
-            max-width: 572px
-            margin: 0 auto
+    +breakpoint( 1025px nth( $scale, 5 ) )
+      max-width: 572px
+      margin: 0 auto
 
-        +breakpoint( ( nth( $scale, 4 ) + 1 ) 1024px )
-            max-width: 500px
-            margin: 0 auto
+    +breakpoint( ( nth( $scale, 5 ) + 1 ) 1024px )
+      max-width: 500px
+      margin: 0 auto
 
-        +breakpoint( max-width nth( $scale, 4 ) )
-            padding: 48px 16px
+    +breakpoint( max-width nth( $scale, 5 ) )
+      padding: 48px 16px

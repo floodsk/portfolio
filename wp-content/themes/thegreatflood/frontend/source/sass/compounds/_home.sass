@@ -2,7 +2,7 @@
 
   .logo
 
-    +breakpoint( max-width nth( $scale, 4 ) )
+    +breakpoint( max-width nth( $scale, 5 ) )
       text-align: center
 
       > a
@@ -26,7 +26,7 @@
     margin: 0 0 56px
     @extend .text-uppercase
 
-    +breakpoint( max-width nth( $scale, 4 ) )
+    +breakpoint( max-width nth( $scale, 5 ) )
       margin: 0 0 28px
 
   .page
@@ -37,8 +37,8 @@
       @supports (display: flex)
         display: flex
 
-        +breakpoint( max-width nth( $scale, 4 ) )
-          flex-direction: column
+      +breakpoint( max-width nth( $scale, 5 ) )
+        flex-direction: column
 
     &-category
       font-size: emify( 14px, $base: 18px )
@@ -49,23 +49,23 @@
       color: $primary
       margin-top: 6px
 
-      +breakpoint( nth( $scale, 5 ) + 1 )
+      +breakpoint( nth( $scale, 6 ) + 1 )
         +column( 175/$content, $gutter: percentage( 32/$content ) )
 
-      +breakpoint( ( nth( $scale, 4 ) + 1 ) nth( $scale, 5 ) )
+      +breakpoint( ( nth( $scale, 5 ) + 1 ) ( nth( $scale, 6 ) ) )
         +column( 250/$content, $gutter: percentage( 32/$content ) )
 
-      +breakpoint( max-width nth( $scale, 4 ) )
+      +breakpoint( max-width nth( $scale, 5 ) )
         font-size: emify( 12px )
         margin: 0 0 16px
 
   .type-page
-    margin: 0 0 40px
+    margin: 0 0 30px
 
-    +breakpoint( nth( $scale, 5 ) + 1 )
+    +breakpoint( nth( $scale, 6 ) + 1 )
       +column( ( $content - 175 )/$content, $gutter: percentage( 32/$content ) )
 
-    +breakpoint( ( nth( $scale, 4 ) + 1 ) nth( $scale, 5 ) )
+    +breakpoint( ( nth( $scale, 5 ) + 1 ) ( nth( $scale, 6 ) ) )
       +column( ( $content - 250 )/$content, $gutter: percentage( 32/$content ) )
 
     .page

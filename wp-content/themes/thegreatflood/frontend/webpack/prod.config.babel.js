@@ -12,19 +12,16 @@ export default merge( base, {
     loaders: [
       {
         test: /\.s[ac]ss$/,
-        use: ExtractTextPlugin.extract({
-          use: [
-            {loader: "css-loader", options: {url: false}},
-            {loader: 'postcss-loader', options: {autoprefixer: true}},
-            {loader:'sass-loader'}
-          ]
-        }),
+        use: ExtractTextPlugin.extract("css-loader?url=false", 'postcss-loader?autoprefixer=true', "sass-loader"),
       }
     ]
   },
   plugins: [
     new webpack.EnvironmentPlugin(['NODE_ENV']),
-    new ExtractTextPlugin('style.css'),
+    new ExtractTextPlugin({
+      filename: './style.css',
+      allChunks: true
+    }),
     new UglifyJsPlugin({
       uglifyOptions: {
         ecma: 8,

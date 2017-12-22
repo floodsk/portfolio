@@ -3,7 +3,7 @@
     max-width: 225px
     margin: 0 auto
 
-    +breakpoint( max-width nth( $scale, 4 ) )
+    +breakpoint( max-width nth( $scale, 5 ) )
         height: 100%
         overflow: scroll
         +size( auto 100vh )
@@ -17,7 +17,7 @@
 
     .sidebar:focus &, .navigation-open &
 
-        +breakpoint( max-width nth( $scale, 4 ) )
+        +breakpoint( max-width nth( $scale, 5 ) )
             left: 0
 
     .home &
@@ -32,5 +32,5 @@
         .logged-in#{&}, &
             padding: 0
 
-        +breakpoint( max-width nth( $scale, 4 ) )
+        +breakpoint( max-width nth( $scale, 5 ) )
             max-width: none

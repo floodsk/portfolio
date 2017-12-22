@@ -1,28 +1,37 @@
 .menu
-    @extend .list-unstyled
+  @extend .list-unstyled
 
-    .sidebar &
+  .sidebar &
 
-        &-item
-            margin: 0 0 16px
+    &-item
+      margin: 0 0 16px
 
-            > a
-                color: $text-color
+      > a
+        color: $text-color
 
-                &:hover, &:focus, &:active
-                    color: $primary
+        &:hover, &:focus, &:active
+          color: $primary
 
-            &.current-menu-item > a
-                color: $primary
+      &.current-menu-item > a
+        color: $primary
 
-        &-item-home
-            margin: 0 0 56px
+    &-item-home
+        margin: 0 0 56px
 
-    .home .sidebar &
-        @extend .list-inline
+  .home .sidebar &
+    @extend .list-inline
 
-        &-item
+    > li
+      padding: 0 20px
 
-            > a
-                @extend .btn
-                @extend .btn-primary
+      &:first-child
+        padding-left: 0
+
+      &:last-child
+        padding-right: 0
+
+    &-item
+
+      > a
+        @extend .btn
+        @extend .btn-primary
