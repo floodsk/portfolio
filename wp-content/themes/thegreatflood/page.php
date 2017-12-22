@@ -1,13 +1,15 @@
 <?php
 /**
- * The template for displaying content pages
+ * The template for displaying the footer
  *
- * @link https://codex.wordpress.org/Creating_an_Error_404_Page
+ * Contains the closing of the #content div and all content after.
+ *
+ * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
  * @package WordPress
- * @subpackage Twenty_Seventeen
+ * @subpackage
  * @since 1.0
- * @version 1.0
+ * @version 1.2
  */
 
 $tags = get_the_tags( get_the_ID() );
@@ -25,12 +27,13 @@ get_header(); ?>
 </header>
 <section role="content" id="content" <?php post_class( 'content' ); ?>>
     <div class="contents-container"><?php the_content(); ?></div>
+
 </section>
-<?php endwhile; ?>
 <footer id="footer" class="footer">
-    <ul class="list-pager">
-        <li><a href="http://" class="lnk lnk-pager lnk-pager-prev">Previous</a></li>
-        <li><a href="http://" class="lnk lnk-pager lnk-pager-next">Next</a></li>
-    </ul>
+    <section class="pager">
+        <?php previous_post_link('%link', 'Previous'); ?>
+        <?php next_post_link( '%link', 'Next' ); ?>
+    </section>
 </footer>
+<?php endwhile; ?>
 <?php get_footer(); ?>

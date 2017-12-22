@@ -1,5 +1,17 @@
 <?php
 
+if ( function_exists( 'register_sidebar' ) ) {
+  register_sidebar( array(
+    'name' => 'Home Summary',
+    'id'   => 'home-summary-widget',
+    'description'   => 'Widget to add the Home Summary on index.php.',
+    'before_widget' => '<aside id="summary" class="summary"><div class="summary-container">',
+    'after_widget' => '</div></aside>',
+    'before_title' => '<h1 class="summary-title">',
+    'after_title'   => '</h1>'
+  ) );
+}
+
 function thegreatflood_custom_logo_setup() {
     $defaults = array(
         'height'      => 240,
@@ -71,3 +83,13 @@ function thegreatflood_image_send_to_editor( $html, $id, $caption, $title, $alig
     return $markup;
 }
 add_filter( 'image_send_to_editor', 'thegreatflood_image_send_to_editor', 10, 8 );
+
+function thegreatflood_previous_post_link( $output ) {
+  return str_replace( '<a href=', '<a class="lnk lnk-pager lnk-pager-prev" href=', $output );
+}
+add_filter( 'previous_post_link', 'thegreatflood_previous_post_link' );
+
+function thegreatflood_next_post_link( $output ) {
+  return str_replace( '<a href=', '<a class="lnk lnk-pager lnk-pager-next" href=', $output );
+}
+add_filter( 'next_post_link', 'thegreatflood_next_post_link' );
