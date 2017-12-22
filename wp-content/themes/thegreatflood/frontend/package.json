@@ -4,9 +4,10 @@
   "description": "A WordPress theme of biblicial porportions.",
   "main": "index.babel.js",
   "scripts": {
+    "deploy": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "gulp dev --mode development",
-    "prod": "gulp dev --mode production"
+    "start": "NODE_ENV=development BABEL_ENV=development webpack --config webpack/dev.config.babel.js --watch",
+    "build": "NODE_ENV=production BABEL_ENV=production webpack --config webpack/prod.config.babel.js"
   },
   "repository": {
     "type": "git",
@@ -26,49 +27,15 @@
   },
   "homepage": "https://github.com/floodsk/portfolio#readme",
   "dependencies": {
-    "babel": "^6.23.0",
-    "babel-core": "^6.26.0",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-react": "^6.24.1",
-    "babelify": "^7.3.0",
-    "backbone": "^1.3.3",
-    "browserify": "^14.4.0",
-    "browserify-shim": "^3.8.14",
-    "envify": "^4.1.0",
-    "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^4.0.0",
-    "gulp-clean-css": "^3.7.0",
-    "gulp-concat": "^2.6.1",
-    "gulp-modernizr": "^1.0.0-alpha",
-    "gulp-rename": "^1.2.2",
-    "gulp-stylus": "^2.6.0",
-    "gulp-util": "^3.0.8",
-    "jeet": "^7.1.0",
+    "bootstrap": "^3.3.7",
     "jquery": "^1.11.2",
     "modernizr": "^3.5.0",
-    "nib": "^1.1.2",
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1",
-    "rupture": "^0.6.2",
-    "stylus": "^0.54.5",
-    "uglify-es": "github:mishoo/UglifyJS2#harmony",
-    "uglify-js": "^2.0.0",
-    "underscore": "^1.8.3",
-    "vinyl-buffer": "^1.0.0",
-    "vinyl-source-stream": "^1.1.0"
+    "underscore": "^1.8.3"
   },
   "babel": {
     "presets": [
       "es2015",
       "react"
-    ]
-  },
-  "browserify-shim": {},
-  "browserify": {
-    "transforms": [
-      "babelify",
-      "envify",
-      "browserify-shim"
     ]
   },
   "eslintConfig": {
@@ -86,5 +53,31 @@
         "jsx": true
       }
     }
+  },
+  "devDependencies": {
+    "babel": "^6.23.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "bourbon": "^4.3.4",
+    "breakpoint-sass": "^2.7.1",
+    "css-loader": "^0.28.7",
+    "css-reset-and-normalize-sass": "^0.1.2",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "file-loader": "^1.1.6",
+    "jeet": "^7.2.0",
+    "node-sass": "^4.7.2",
+    "postcss-loader": "^2.0.9",
+    "raw-loader": "^0.5.1",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.19.1",
+    "uglify-es": "github:mishoo/UglifyJS2#harmony",
+    "uglify-js": "^2.0.0",
+    "uglifyjs-webpack-plugin": "^1.1.4",
+    "url-loader": "^0.6.2",
+    "webpack": "^3.10.0",
+    "webpack-merge": "^4.1.1"
   }
 }

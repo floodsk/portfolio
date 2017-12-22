@@ -1,0 +1,15 @@
+.article
+    +column( map-get( $jeet, 'content' ) )
+    padding-top: 40px
+
+    +breakpoint( max-width nth( $scale, 4 ) )
+        +stack()
+        width: 100%
+        padding-top: 0
+
+    .home &
+        +move( map-get( $jeet, 'sidebar' ), $col-or-span: 'span' )
+        padding-top: 0
+
+        +breakpoint( max-width nth( $scale, 4 ) )
+            +unmove()

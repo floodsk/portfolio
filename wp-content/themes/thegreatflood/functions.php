@@ -32,7 +32,7 @@ function thegreatflood_menus() {
 add_action( 'init', 'thegreatflood_menus' );
 
 function thegreatflood_custom_menu_page_removing() {
-  remove_menu_page( 'edit.php' ); 
+  remove_menu_page( 'edit.php' );
 }
 add_action( 'admin_menu', 'thegreatflood_custom_menu_page_removing' );
 

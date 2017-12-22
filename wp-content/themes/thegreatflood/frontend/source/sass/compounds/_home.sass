@@ -1,0 +1,82 @@
+.home
+
+  .logo
+
+    +breakpoint( max-width nth( $scale, 4 ) )
+      text-align: center
+
+      > a
+        text-align: center
+        display: block
+        +size( 206px )
+        margin: 0 auto
+
+  .title
+    @extend h4
+    margin: 0 0 21px
+
+    > a
+      color: inherit
+
+      &:hover, &:focus, &:active
+        color: inherit
+
+  .tag-line
+    @extend h5
+    margin: 0 0 56px
+    @extend .text-uppercase
+
+    +breakpoint( max-width nth( $scale, 4 ) )
+      margin: 0 0 28px
+
+  .page
+
+    &-item
+      +clearfix()
+
+      @supports (display: flex)
+        display: flex
+
+        +breakpoint( max-width nth( $scale, 4 ) )
+          flex-direction: column
+
+    &-category
+      font-size: emify( 14px, $base: 18px )
+      letter-spacing: emify( 1.17px )
+      @extend .text-uppercase
+      font-weight: 700
+      margin-bottom: 0
+      color: $primary
+      margin-top: 6px
+
+      +breakpoint( nth( $scale, 5 ) + 1 )
+        +column( 175/$content, $gutter: percentage( 32/$content ) )
+
+      +breakpoint( ( nth( $scale, 4 ) + 1 ) nth( $scale, 5 ) )
+        +column( 250/$content, $gutter: percentage( 32/$content ) )
+
+      +breakpoint( max-width nth( $scale, 4 ) )
+        font-size: emify( 12px )
+        margin: 0 0 16px
+
+  .type-page
+    margin: 0 0 40px
+
+    +breakpoint( nth( $scale, 5 ) + 1 )
+      +column( ( $content - 175 )/$content, $gutter: percentage( 32/$content ) )
+
+    +breakpoint( ( nth( $scale, 4 ) + 1 ) nth( $scale, 5 ) )
+      +column( ( $content - 250 )/$content, $gutter: percentage( 32/$content ) )
+
+    .page
+
+      &-title
+        @extend h5
+        margin: 0 0 16px
+        color: $text-color
+
+        > a
+          color: inherit
+
+          &:hover, &:focus, &:active
+            color: $primary

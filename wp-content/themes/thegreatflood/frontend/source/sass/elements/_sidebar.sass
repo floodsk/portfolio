@@ -1,0 +1,48 @@
+.sidebar
+    // +column( map-get( $jeet, 'sidebar' ) )
+    background-color: transparent
+    padding-top: 60px
+
+    +breakpoint( max-width nth( $scale, 4 ) )
+        +stack()
+        padding: 40px 16px
+        transition: margin-left .15s ease-in-out
+
+        + .article
+            transition: margin-left .15s ease-in-out
+
+        &:after
+            font: font-awesome( emify( 32px ) )
+            content: '\f0c9'
+            display: block
+
+        &:focus, .navigation-open &
+            margin-left: 225px
+            outline: none
+
+            + .article
+                margin-left: 225px
+
+    .home &
+        background-color: $index-bg
+
+        +breakpoint( nth( $scale, 4 ) + 1 )
+            height: 100%
+            overflow: hidden
+            +size( auto 100vh )
+            padding: 144px 6% 60px
+            +position( fixed, 0 null null 0 )
+            box-shadow: 0 2px 5px rgba(60, 57, 55, 0.8), inset -1px 0 0 $fourth
+
+        +breakpoint( max-width nth( $scale, 4 ) )
+            padding: 32px 16px
+            box-shadow: inset 0 -1px 0 $fourth
+
+            &:after
+                display: none
+
+            &:focus, .navigation-open &
+                margin-left: 0
+
+                + .article
+                    margin-left: 0

@@ -1,0 +1,14 @@
+@function strip-measure($number)
+  @return $number / ($number * 0 + 1)
+
+@function emify($size, $base: $em-base, $measure: 'em')
+  @if not unitless($size)
+    $size: strip-measure($size)
+
+  @if not unitless($base)
+    $base: strip-measure($base)
+
+  @return unquote(($size / $base) + $measure)
+
+@function font-awesome($size: 1em)
+  @return normal normal normal #{$size}/1 'FontAwesome'

@@ -1,0 +1,37 @@
+.marquee
+    max-width: 736px
+    padding: 0 16px
+
+    +breakpoint( max-width nth( $scale, 4 ) )
+        padding: 0 16px
+
+    &-title
+        letter-spacing: emify( 0.4px )
+        font-size: emify( 40px )
+        color: $text-color
+        margin: 0 0 24px
+        line-height: 1.6
+
+        +breakpoint( max-width nth( $scale, 4 ) )
+            font-size: emify( 24px )
+            line-height: $line-height-base
+            letter-spacing: emify( 0.24px )
+
+    .list-pipe
+        color: $fourth
+        font-size: emify( 20px )
+        letter-spacing: emify( 0.2px )
+
+        +breakpoint( max-width nth( $scale, 4 ) )
+            font-size: emify( 18px )
+            letter-spacing: emify( 0.18px )
+
+        > li
+            display: inline
+            padding: 0
+
+            &:after
+                padding: 0 0 0 5px
+
+    .home &
+        padding: 0

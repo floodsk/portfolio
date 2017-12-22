@@ -1,0 +1,36 @@
+.nav
+    padding: 40px 16px 24px
+    max-width: 225px
+    margin: 0 auto
+
+    +breakpoint( max-width nth( $scale, 4 ) )
+        height: 100%
+        overflow: scroll
+        +size( auto 100vh )
+        background-color: $matte-bg
+        box-shadow: 1px 0 4px #d7d7d6
+        @transition( left 0.15s ease-in-out )
+        +position( fixed, 0 null null -100% )
+
+        .logged-in &
+            padding-top: 85px
+
+    .sidebar:focus &, .navigation-open &
+
+        +breakpoint( max-width nth( $scale, 4 ) )
+            left: 0
+
+    .home &
+        +size( auto )
+        overflow: hidden
+        max-width: 300px
+        box-shadow: none
+        text-align center
+        background-color: transparent
+        +position( relative, null null null 0 )
+
+        .logged-in#{&}, &
+            padding: 0
+
+        +breakpoint( max-width nth( $scale, 4 ) )
+            max-width: none
