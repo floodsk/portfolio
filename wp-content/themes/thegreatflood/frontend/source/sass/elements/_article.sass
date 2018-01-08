@@ -1,15 +1,19 @@
 .article
-    +column( map-get( $jeet, 'content' ) )
-    padding-top: 40px
+
+  .page &
+    +grid-column( 9, $neat )
+    padding-top: 60px
 
     +breakpoint( max-width nth( $scale, 5 ) )
-        +stack()
-        width: 100%
-        padding-top: 0
+      +stack()
+      width: 100%
+      padding-top: 0
 
-    .home &
-        +move( map-get( $jeet, 'sidebar' ), $col-or-span: 'span' )
-        padding-top: 0
+  .home &
+    padding-top: 0
 
-        +breakpoint( max-width nth( $scale, 5 ) )
-            +unmove()
+    +breakpoint( nth( $scale, 5 ) + 1 )
+      +push( 345px )
+
+    +breakpoint( nth( $scale, 6 ) + 1 )
+      +push( 451px )

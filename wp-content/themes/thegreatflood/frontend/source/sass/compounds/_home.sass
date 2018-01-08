@@ -2,14 +2,30 @@
 
   .logo
 
-    +breakpoint( max-width nth( $scale, 5 ) )
+    > a
+      margin: 0 auto
+      +size( 211px )
+      display: block
+      overflow: hidden
       text-align: center
+      border-radius: 100%
+      border: thin solid $primary
+      box-shadow: 0 0 8px $box-shadow
+
+    +breakpoint( nth( $scale, 4 ) + 1 )
 
       > a
-        text-align: center
-        display: block
-        +size( 206px )
-        margin: 0 auto
+        +size( 150px )
+
+    +breakpoint( nth( $scale, 5 ) + 1 )
+
+      > a
+        +size( 196px )
+
+    +breakpoint( nth( $scale, 5 ) + 1 )
+
+      > a
+        +size( 240px )
 
   .title
     @extend h4
@@ -33,12 +49,7 @@
 
     &-item
       +clearfix()
-
-      @supports (display: flex)
-        display: flex
-
-      +breakpoint( max-width nth( $scale, 5 ) )
-        flex-direction: column
+      width: 100%
 
     &-category
       font-size: emify( 14px, $base: 18px )
@@ -49,11 +60,11 @@
       color: $primary
       margin-top: 6px
 
-      +breakpoint( nth( $scale, 6 ) + 1 )
-        +column( 175/$content, $gutter: percentage( 32/$content ) )
+      +breakpoint( nth( $scale, 5 ) + 1 )
+        +grid-column( 2.5, $neat )
 
-      +breakpoint( ( nth( $scale, 5 ) + 1 ) ( nth( $scale, 6 ) ) )
-        +column( 250/$content, $gutter: percentage( 32/$content ) )
+        &:first-child
+          margin-left: 0
 
       +breakpoint( max-width nth( $scale, 5 ) )
         font-size: emify( 12px )
@@ -62,11 +73,13 @@
   .type-page
     margin: 0 0 30px
 
-    +breakpoint( nth( $scale, 6 ) + 1 )
-      +column( ( $content - 175 )/$content, $gutter: percentage( 32/$content ) )
+    +breakpoint( nth( $scale, 5 ) + 1 )
+      +grid-column( 9.5, $neat )
 
-    +breakpoint( ( nth( $scale, 5 ) + 1 ) ( nth( $scale, 6 ) ) )
-      +column( ( $content - 250 )/$content, $gutter: percentage( 32/$content ) )
+      &:first-child
+        +grid-push( 2.5 )
+        position: relative
+        left: -104px + 16px
 
     .page
 

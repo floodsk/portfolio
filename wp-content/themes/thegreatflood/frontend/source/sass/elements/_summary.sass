@@ -3,8 +3,35 @@
   display: block
 
   &-container
+    +clearfix()
     padding: 0 16px
     margin: 42px auto 0
 
   &-title
-    font-size: emify( 30px, $base: 16px )
+    font-size: emify( 14px, $base: 18px )
+    letter-spacing: emify( 1.17px )
+    @extend .text-uppercase
+    font-weight: 700
+    margin-bottom: 0
+    color: $primary
+    margin-top: 6px
+
+    +breakpoint( nth( $scale, 5 ) + 1 )
+      +grid-column( 2.5, $neat )
+
+      &:first-child
+        margin-left: 0
+
+    +breakpoint( max-width nth( $scale, 5 ) )
+      font-size: emify( 12px )
+      margin: 0 0 16px
+
+  .textwidget
+
+    +breakpoint( nth( $scale, 5 ) + 1 )
+      +grid-column( 9.5, $neat )
+
+      &:first-child
+        +grid-push( 2.5 )
+        position: relative
+        left: -104px + 16px

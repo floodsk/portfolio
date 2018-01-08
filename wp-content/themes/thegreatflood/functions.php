@@ -25,6 +25,7 @@ function thegreatflood_custom_logo_setup() {
 add_action( 'after_setup_theme', 'thegreatflood_custom_logo_setup' );
 
 function thegreatflood_enqueue_scripts() {
+    wp_enqueue_style( 'style-min', get_template_directory_uri() . '/style.min.css' );
     wp_enqueue_script( 'modernizr', get_template_directory_uri() . '/modernizr.min.js', array(), 1, false );
     wp_enqueue_script( 'script', get_template_directory_uri() . '/script.min.js', array(), 1, true );
 }
