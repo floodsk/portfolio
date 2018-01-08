@@ -1,7 +1,10 @@
 .sidebar
-    +column( map-get( $jeet, 'sidebar' ) )
+
+  .page &
     background-color: transparent
+    +grid-column( 3, $neat )
     padding-top: 60px
+    margin-left: 32px
 
     +breakpoint( max-width nth( $scale, 5 ) )
         +stack()
@@ -23,27 +26,35 @@
             + .article
                 margin-left: 225px
 
-    .home &
-        background-color: $index-bg
-        text-align: center
 
-        +breakpoint( nth( $scale, 5 ) + 1 )
-            height: 100%
-            overflow: hidden
-            +size( auto 100vh )
-            padding: 144px 6% 60px
-            +position( fixed, 0 null null 0 )
-            box-shadow: 0 2px 5px rgba(60, 57, 55, 0.8), inset -1px 0 0 $fourth
+  .home &
+    background-color: $index-bg
+    text-align: center
+    +size( 100% auto )
+    +stack()
 
-        +breakpoint( max-width nth( $scale, 5 ) )
-            padding: 32px 16px
-            box-shadow: inset 0 -1px 0 $fourth
+    +breakpoint( nth( $scale, 5 ) + 1 )
+      height: 100vh
+      overflow: hidden
+      padding: 144px 8% 60px
+      +position( fixed, 0 null null 0 )
+      box-shadow: 0 2px 5px rgba(60, 57, 55, 0.8), inset -1px 0 0 $fourth
 
-            &:after
-                display: none
+    +breakpoint( nth( $scale, 5 ) + 1 )
+      max-width: 345px
 
-            &:focus, .navigation-open &
-                margin-left: 0
+    +breakpoint( nth( $scale, 6 ) + 1 )
+      max-width: 540px
 
-                + .article
-                    margin-left: 0
+    +breakpoint( max-width nth( $scale, 5 ) )
+      padding: 32px 16px
+      box-shadow: inset 0 -1px 0 $fourth
+
+      &:after
+        display: none
+
+      &:focus, .navigation-open &
+        margin-left: 0
+
+      + .article
+        margin-left: 0

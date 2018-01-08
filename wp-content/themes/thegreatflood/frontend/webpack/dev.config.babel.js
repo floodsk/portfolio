@@ -6,6 +6,7 @@ import merge from 'webpack-merge'
 import base from './base.config.babel.js'
 
 export default merge( base, {
+  entry:  __dirname.replace( '/webpack', '' ) + '/app.dev.js',
   devtool: 'eval-source-map',
   module: {
     loaders: [

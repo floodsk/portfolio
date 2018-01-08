@@ -18,7 +18,7 @@ get_header(); ?>
 <header role="marquee" id="marquee" <?php post_class( 'marquee' ); ?>>
     <h1 class="marquee-title"><?php the_title() ?></h1>
     <?php if ( isset( $tags ) && !empty( $tags ) ): ?>
-    <ul class="list-pipe">
+    <ul class="list-categories">
         <?php foreach( $tags as $tag ): ?>
         <li><?php print $tag->name; ?></li>
         <?php endforeach; ?>

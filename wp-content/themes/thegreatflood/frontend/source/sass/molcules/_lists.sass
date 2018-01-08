@@ -67,6 +67,21 @@ ul
     &-sections
         @extend .list-unstyled
 
+    &-categories
+      color: $fourth
+      @extend .list-pipe
+      letter-spacing: emify( 0.2px )
+
+      > li
+        font:
+          weight: 600
+          size: emify( 20px )
+          family: $headings-font-family
+
+      +breakpoint( max-width nth( $scale, 5 ) )
+        font-size: emify( 18px )
+        letter-spacing: emify( 0.18px )
+
     &-pages
         @extend .list-unstyled
 

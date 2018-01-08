@@ -4,7 +4,6 @@ import path from 'path'
 import webpack from 'webpack'
 
 export default {
-  entry:  __dirname.replace( '/webpack', '' ) + '/app.js',
   node: {
     fs: 'empty'
   },

@@ -20,6 +20,7 @@ export default class BaseView {
       this.$el = $( this.el );
 
       this.$el.on( 'click touch', this.menu )
+      document.documentElement.className = document.documentElement.className.replace( /no-js/gi, 'js' );
     }
 
     menu( e ) {

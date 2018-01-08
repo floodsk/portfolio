@@ -1,7 +1,7 @@
 .nav
     padding: 40px 16px 24px
     max-width: 225px
-    margin: 0 auto
+    margin: 0
 
     +breakpoint( max-width nth( $scale, 5 ) )
         height: 100%
@@ -19,6 +19,17 @@
 
         +breakpoint( max-width nth( $scale, 5 ) )
             left: 0
+
+    .page &
+
+      +breakpoint( nth( $scale, 5 ) + 1 )
+        padding-top: 12px
+
+
+      .logged-in
+
+        +breakpoint( max-width nth( $scale, 5 ) )
+          padding-top: 52px
 
     .home &
         +size( auto )

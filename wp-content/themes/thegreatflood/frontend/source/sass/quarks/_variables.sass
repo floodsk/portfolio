@@ -1,10 +1,12 @@
+$page: 1200
 $sidebar: 540
-$sizing: 1440
-$page: 1200px
-$matte: $sizing * 1px
-$content: $sizing - $sidebar
-$scale: ( 0 479px 799px 767px 991px 1199px )
-$jeet: ( gutter: 0, max-width: $matte, layout-direction: LTR, parent-first: false, sidebar: $sidebar / $sizing, content: $content / $sizing )
+$viewport: 1440
+$container: $page * 1px
+$matte: $viewport * 1px
+$content: $page - $sidebar
+$scale: ( 0 479px 599px 767px 991px 1199px )
+$neat: ( columns: 12, gutter: 16px, )
+$neat-grid: ( columns: 12, gutter: 104px, )
 
 $font-family-serif: 'Oswald', tahoma, sans-serif
 $font-family-sans-serif: 'Roboto', helvetica, sans-serif
