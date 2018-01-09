@@ -3,7 +3,17 @@
     max-width: 225px
     margin: 0
 
-    +breakpoint( max-width nth( $scale, 5 ) )
+    .sidebar:focus &, .navigation-open &
+
+      +breakpoint( max-width nth( $scale, 5 ) )
+        left: 0
+
+    .page &
+
+      +breakpoint( nth( $scale, 5 ) + 1 )
+        padding-top: 12px
+
+      +breakpoint( max-width nth( $scale, 5 ) )
         height: 100%
         overflow: scroll
         +size( auto 100vh )
@@ -13,18 +23,7 @@
         +position( fixed, 0 null null -100% )
 
         .logged-in &
-            padding-top: 85px
-
-    .sidebar:focus &, .navigation-open &
-
-        +breakpoint( max-width nth( $scale, 5 ) )
-            left: 0
-
-    .page &
-
-      +breakpoint( nth( $scale, 5 ) + 1 )
-        padding-top: 12px
-
+          padding-top: 85px
 
       .logged-in
 
@@ -32,16 +31,21 @@
           padding-top: 52px
 
     .home &
-        +size( auto )
-        overflow: hidden
+      margin: 0 auto
+      max-width: 540px
+      background-color: $index-bg
+
+      +breakpoint( nth( $scale, 3 ) + 1 )
         max-width: 300px
-        box-shadow: none
-        text-align center
-        background-color: transparent
-        +position( relative, null null null 0 )
 
-        .logged-in#{&}, &
-            padding: 0
+      +breakpoint( nth( $scale, 6 ) + 1 )
+        max-width: 450px
 
-        +breakpoint( max-width nth( $scale, 5 ) )
-            max-width: none
+      +breakpoint( nth( $scale, 4 ) + 1 )
+        height: 100%
+        padding: 144px 16px 60px
+        +size( 100% 100vh )
+        +position( fixed, null null null null )
+
+      .logged-in#{&}
+        padding: 0

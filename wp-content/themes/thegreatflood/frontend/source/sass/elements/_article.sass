@@ -1,19 +1,19 @@
 .article
 
   .page &
-    +grid-column( 9, $neat )
     padding-top: 60px
+    +grid-column( 9, $neat )
 
     +breakpoint( max-width nth( $scale, 5 ) )
-      +stack()
-      width: 100%
       padding-top: 0
+      +stack()
 
   .home &
     padding-top: 0
+    +grid-column( 7, $neat )
 
     +breakpoint( nth( $scale, 5 ) + 1 )
-      +push( 345px )
+      +grid-column( 8, $neat )
 
-    +breakpoint( nth( $scale, 6 ) + 1 )
-      +push( 451px )
+    +breakpoint( max-width nth( $scale, 4 ) )
+      +stack()

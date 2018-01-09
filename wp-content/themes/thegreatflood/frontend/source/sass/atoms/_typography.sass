@@ -115,6 +115,17 @@ p, li, blockquote
     text-align: right
     display: block
 
+.align
+
+  &center
+    @extend .block-center
+
+  &left
+    @extend .block-left
+
+  &right
+    @extend .block-right
+
 .sr-only
   +position( absolute, 0 null null 0 )
   text-indent: 1000em

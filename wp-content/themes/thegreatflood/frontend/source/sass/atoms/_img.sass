@@ -1,41 +1,40 @@
 figure
+  margin: 0 auto
+
+  .attachment &
     margin: 0 auto
 
-    .attachment &
-        margin: 0 auto
+.wp-image
+  margin: 40px auto
+
+  > img
+    box-shadow: 0 0 30px $image-shadow-color
+    border: thin solid $image-border-color
+
+  figcaption, .wp-caption-text
+    text-align: left
+    margin: 24px 0 0
+    color: $caption-color
+    font-size: emify( 14px )
 
 .img
-    margin: 40px auto
 
-    &:empty
-        display: none
+  &-responsive
+    max-width: 100%
 
-    > img
-        box-shadow: 0 0 30px $image-shadow-color
-        border: thin solid $image-border-color
+  &-rounded
+    border-radius: $border-radius-small
 
-    figcaption
-        text-align: left
-        margin: 24px 0 0
-        color: $caption-color
-        font-size: emify( 14px )
+  &-circle
+    border-radius: 100%
 
-    &-responsive
-        max-width: 100%
+  &-size
 
-    &-rounded
-        border-radius: $border-radius-small
+    &-thumbnail
+      +size( 150px )
 
-    &-circle
-        border-radius: 100%
+    &-medium
+      +size( 300px 83px )
 
-    &-size
-
-        &-thumbnail
-            +size( 150px )
-
-        &-medium
-            +size( 300px 83px )
-
-        &-full
-            @extend .img-responsive
+    &-full
+      @extend .img-responsive
